@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\unseentalents.core\unseentalents.core.csproj" />
+    <ProjectReference Include="..\unseentalents.data\unseentalents.data.csproj" />
+    <ProjectReference Include="..\unseentalents.extensions\unseentalents.extensions.csproj" />
+    <ProjectReference Include="..\unseentalents.models\unseentalents.models.csproj" />
+  </ItemGroup>
+
+</Project>

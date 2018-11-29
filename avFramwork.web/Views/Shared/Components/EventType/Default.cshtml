@@ -1,0 +1,8 @@
+﻿@model List<unseentalents.models.EventType>
+
+
+    @foreach(var item in Model) {
+    <li><a href="~/events/@item.Name.Replace(" ", "")">@item.Name </a></li>
+
+    }
+

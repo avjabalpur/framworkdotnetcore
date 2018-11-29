@@ -1,0 +1,49 @@
+﻿@model unseentalents.models.ViewModel.EventTypeViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="col-md-12 margin-top-15">
+        <div class="section-heading">
+            <div class="pull-left">
+                <div class="name">
+                    <span class="text-red">@Model.EventType.Name</span>
+                </div>
+                <p>@Model.EventType.Description</p>
+            </div>
+           
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-12 margin-top-15">
+            @foreach (var round in Model.Rounds)
+            {
+                var roundImage = !string.IsNullOrEmpty(@round.ImageName) ? "Uploads/EventImages/"+@round.ImageName : "images/defaultEventImage.jpg";
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="event-image-wraper">
+                        <a href="~/events/@Model.EventType.Name.Replace(" ", "")/@round.Id">
+                            <img src="~/@roundImage"  alt="featuring image" class="img-responsive" />
+                        </a>
+                        <div class="imageDetails">
+                            <h5><a href="#">@round.RoundName</a></h5>
+                            <div class="pull-left">
+                                <p>Start : @round.StartDate.Value.ToString("MM/dd/yyyy")</p>
+                                <p>Duration : @round.RoundDuration</p>
+                            </div>
+
+                            <div class="pull-right">
+                                <p>End : @round.EndDate.Value.ToString("MM/dd/yyyy")</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+

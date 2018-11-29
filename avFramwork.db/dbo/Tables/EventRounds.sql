@@ -1,0 +1,26 @@
+﻿
+CREATE TABLE [dbo].[EventRounds](
+	[Id] [BIGINT] IDENTITY(1,1) NOT NULL,
+	[RoundName] [NVARCHAR](100) NOT NULL,
+	[RoundDuration] [DECIMAL](18, 1) NOT NULL,
+	[NoOfVideos] [NVARCHAR](50) NOT NULL,
+	[DaysDurations] [INT] NOT NULL,
+	[RoundOrderNo] [INT] NOT NULL,
+	[IsDeleted] [BIT] NOT NULL,
+	[ImageName] [NVARCHAR](MAX) NULL,
+	[ShowVotes] [BIT] NULL,
+	[IsActive] [BIT] NULL,
+	[StartDate] [DATETIME] NULL,
+	[EndDate] [DATETIME] NULL,
+	[EventType] [INT] NULL,
+	[Isbackstage] [BIGINT] NULL,
+	[EventStage] [INT] NULL,
+ CONSTRAINT [PK_EventSetting] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+

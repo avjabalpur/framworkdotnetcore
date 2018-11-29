@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\unseentalents.auth\unseentalents.auth.csproj" />
+    <ProjectReference Include="..\unseentalents.core\unseentalents.core.csproj" />
+    <ProjectReference Include="..\unseentalents.data\unseentalents.data.csproj" />
+    <ProjectReference Include="..\unseentalents.extensions\unseentalents.extensions.csproj" />
+    <ProjectReference Include="..\unseentalents.models\unseentalents.models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Events\" />
+  </ItemGroup>
+
+</Project>

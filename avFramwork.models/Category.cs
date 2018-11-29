@@ -1,0 +1,22 @@
+using System;
+
+namespace avFramworktalents.models
+{
+		/// <summary>
+		/// Gets or sets the CategoryEntity value.
+		/// </summary>
+	public class Category
+	{
+
+		/// <summary>
+		/// Gets or sets the Id value.
+		/// </summary>
+		public long Id { get; set; }
+
+		/// <summary>
+		/// Gets or sets the Name value.
+		/// </summary>
+		public string Name { get; set; }
+
+	}
+}

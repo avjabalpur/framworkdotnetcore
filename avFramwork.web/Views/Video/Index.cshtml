@@ -1,0 +1,200 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+
+    <div class="featuringNow col-md-12 col-sm-12 col-xs-12 ng-scope" ng-controller="EventDetailCtrl">
+        <input type="hidden" value="13" id="hdnEventId">
+        <input type="hidden" value="56" id="hdnVideoId">
+
+        <div class="page-header headerMargin">
+            <h2> backstage-guitar-face-off : </h2>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <p>Voting is open till </p>
+        </div>
+        <!-- ngIf: IsRoundActive == '0' && roundEndDate!= null -->
+
+        <div class="row row-padding">
+            <!-- ngIf: eveeventPostsntList == null -->
+
+            <div class="col-md-8 col-sm-12 col-xs-12">
+
+                <div id="jp_container_1" class="jp-video jp-video-270p">
+                    <!--Start: New Code For playlist-->
+                    <div class="jp-type-playlist" style="width:750px !important;">
+                        <div id="jplayer_1" class="jp-jplayer jp-video" style="width: 560px; height: 270px;"><img id="jp_poster_0" src="/WebImages/VideoThumbnail/Untitled.jpg" style="width: 560px; height: 270px; display: none;"><audio id="jp_audio_0" preload="metadata" title="Crazy Train"></audio><video id="jp_video_0" preload="metadata" src="https://unseentalents.com/Videos/1/Untitled.mp4" title="Crazy Train" style="width: 560px; height: 270px;"></video></div>
+                        <div class="jp-gui">
+                            <div class="jp-video-play" style="display: none;">
+                                <a class="fa fa-5x text-white fa-play-circle">
+                                </a>
+                            </div>
+                            <div class="jp-interface">
+                                <div class="jp-progress">
+                                    <div class="jp-seek-bar" style="width: 100%;">
+                                        <div class="jp-play-bar" style="width: 4.7756%;"></div>
+                                    </div>
+                                </div>
+                                <div class="jp-current-time" role="timer" aria-label="time">00:04</div>
+                                <div class="jp-duration" role="timer" aria-label="duration">01:35</div>
+
+                                <div class="jp-controls-holder">
+                                    <div class="jp-controls">
+                                        <button class="jp-previous" role="button" tabindex="0" ng-click="PlayNextPrvVideo('prev',VideoItem)">previous</button>
+                                        <button class="jp-play" role="button" tabindex="0">play</button>
+                                        <button class="jp-next" role="button" tabindex="0" ng-click="PlayNextPrvVideo('next',VideoItem)">next</button>
+                                        <button class="jp-stop" role="button" tabindex="0">stop</button>
+                                    </div>
+                                    <div class="jp-volume-controls">
+                                        <button class="jp-mute" role="button" tabindex="0">mute</button>
+                                        <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+                                        <div class="jp-volume-bar">
+                                            <div class="jp-volume-bar-value" style="width: 80%;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="jp-toggles">
+
+                                        <button class="jp-full-screen" role="button" tabindex="0">full screen</button>
+                                    </div>
+                                </div>
+                                <div class="jp-details" style="display: none;">
+                                    <div class="jp-title" aria-label="title">Crazy Train</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jp-no-solution hide" style="display: none;">
+                            <span>Update Required</span>
+                            To play the media you will need to either update your browser to a recent version or update your
+                            <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+                        </div>
+                    </div>
+                    <!--End: New Code For playlist-->
+                    <!--Start: Old Code For single play-->
+                    <!--End: Old Code For single play-->
+                </div>
+                <div class="video-content">
+                    <a href="/WebApp/Login"><h4>Crazy Train</h4><span class="pull-right"><i class="glyphicon glyphicon-thumbs-up"></i></span></a>
+                    <p class="data"><a href="#"><em>Sample showing what a video looks like</em> </a></p>
+                    <ul class="list-inline">
+                        <li>by <a href="/Webapp/ViewProfile/66" class="m-r-sm"> Samo</a></li>
+                        <li>2018 July 17</li>
+                        <li>
+                            <!-- ngIf: isEventOver =='0' && IsRoundActive == '1' -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <div class="event-aside">
+                    <div class="recent-event">
+                        <h3>Recent Events</h3>
+                        <ul>
+                            <!-- ngIf: recentevents == null -->
+                            <!-- ngRepeat: recentEvent in recentevents track by $index -->
+                            <li class="dd-item">
+                                <div class="dd-handle">
+                                    <a href="/WebApp/Videos/1/back-stages" ng-bind="recentEvent.eventTitle">back stages</a>
+                                </div>
+                            </li><!-- end ngRepeat: recentEvent in recentevents track by $index -->
+                            <li class="dd-item ">
+                                <div class="dd-handle">
+                                    <a href="/WebApp/Videos/2/1st-karaoke-event" ng-bind="recentEvent.eventTitle">1st Karaoke Event</a>
+                                </div>
+                            </li><!-- end ngRepeat: recentEvent in recentevents track by $index -->
+                            <li class="dd-item">
+                                <div class="dd-handle">
+                                    <a href="/WebApp/Videos/3/new-karaoke-event" ng-bind="recentEvent.eventTitle">New Karaoke Event</a>
+                                </div>
+                            </li><!-- end ngRepeat: recentEvent in recentevents track by $index -->
+                            <li class="dd-item">
+                                <div class="dd-handle">
+                                    <a href="/WebApp/Videos/4/new-karaoke-event" ng-bind="recentEvent.eventTitle">New Karaoke Event</a>
+                                </div>
+                            </li><!-- end ngRepeat: recentEvent in recentevents track by $index -->
+                            <li class="dd-item ">
+                                <div class="dd-handle">
+                                    <a href="/WebApp/Videos/5/new-event" ng-bind="recentEvent.eventTitle">New Event</a>
+                                </div>
+                            </li><!-- end ngRepeat: recentEvent in recentevents track by $index -->
+                        </ul>
+                    </div>
+                    <div class="more-video">
+                        <h3>More Talent Videos In This Event</h3>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" id="txtState" class="form-control ng-pristine ng-valid" ng-keypress="eventDeatil=null" typeahead-on-select="selectSeach($item)" typeahead="event.eventName for event in eventList| filter:{eventName:$viewValue}" typeahead-template-url="/HtmlTemplates/SearchTemplate.html" placeholder="Search events here..." autocomplete="off"><ul class="dropdown-menu ng-isolate-scope" ng-style="{display: isOpen()&amp;&amp;'block' || 'none', top: position.top+'px', left: position.left+'px'}" typeahead-popup="" matches="matches" active="activeIdx" select="select(activeIdx)" query="query" position="position" template-url="/HtmlTemplates/SearchTemplate.html" style="display: none;">
+                                    <!-- ngRepeat: match in matches -->
+                                </ul>
+                                <span class="input-group-addon">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- ngIf: eveeventPostsntList == null -->
+                        <ul>
+                            <!-- ngRepeat: post in eveeventPostsntList track by $index -->
+                            <li ng-repeat="post in eveeventPostsntList track by $index" class="ng-scope">
+                                <div class="more-video-content">
+                                    <div class="col-md-3">
+                                        <a href="javascript:void(0)">
+                                            <img src="/WebImages/VideoThumbnail/Untitled.jpg" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <a href="javascript:void(0)"><h4>Crazy Train</h4></a>
+
+                                        <a href="/WebApp/Login">
+                                            <span class="pull-right">
+                                                <i class="glyphicon glyphicon-thumbs-up"></i>
+                                            </span>
+                                        </a>
+
+                                        <p class="data"><a href="#"><em>Sample showing what a video looks like</em> </a></p>
+
+                                        <p>by<a href="/Webapp/ViewProfile/66"> Samo</a><span class="pull-right >2018 July 17</span></p>
+                                        <span class="label m-l-sm pull-right anchorLink">
+                                            <!-- ngIf: post.showVotes == 1 -->
+                                            <!-- ngIf: post.showVotes == 0 --><span ng-if="post.showVotes == 0">
+                                                <span class="btn btn-xs btn-default ng-hide" style="font-size:17px;"><i class="fa fa-thumbs-up text-success"></i> Voted</span>
+                                                <span class="btn btn-xs btn-default" style="font-size:17px;"><i class="fa fa-thumbs-o-up icon-muted"></i> Vote</span>
+                                            </span><!-- end ngIf: post.showVotes == 0 -->
+                                        </span>
+                                    </div>
+                                </div>
+                            </li><!-- end ngRepeat: post in eveeventPostsntList track by $index -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="ShareVideo" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title">Share Video</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form role="form" class="ng-pristine ng-invalid ng-invalid-required">
+                            <div class="form-group">
+                                <label>Share this Video</label>
+                                <input type="text" class="form-control ng-pristine ng-valid ng-binding" disabled="disabled" data-ng-model="ShareVideo.VideoLink" ng-bind="ShareVideo.VideoLink">
+                            </div>
+                            <div class="form-group">
+                                <label>Share this with </label>
+                                <input type="text" class="form-control ng-pristine ng-invalid ng-invalid-required" id="ShareToEmail" placeholder="Email Id" ng-model="ShareVideo.ShareToEmail" data-ng-required="true" required="required">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success" ng-click="shareVideoPost(ShareVideo)">Send</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

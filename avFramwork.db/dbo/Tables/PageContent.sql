@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[PageContent](
+	[Id] [bigint] IDENTITY(1,1) NOT NULL,
+	[KeyTitle] [nvarchar](100) NOT NULL,
+	[Value] [nvarchar](max) NOT NULL,
+	[PageId] [bigint] NOT NULL,
+ CONSTRAINT [PK_PageContent] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[PageContent]  WITH CHECK ADD  CONSTRAINT [FK_PageContent_Page] FOREIGN KEY([PageId])
+REFERENCES [dbo].[Page] ([Id])
+GO
+
+ALTER TABLE [dbo].[PageContent] CHECK CONSTRAINT [FK_PageContent_Page]

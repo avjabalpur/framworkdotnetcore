@@ -1,0 +1,102 @@
+﻿@model IEnumerable<unseentalents.models.Token>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="col-md-12">
+        <ul class="list-group gutter list-group-lg list-group-sp sortable ui-sortable">
+            <li class="list-group-item bg-token-info ui-sortable-handle">
+                <div class="clear ng-binding"> You have 0 avaliable token(s)</div>
+            </li>
+        </ul>
+        <div class="well ng-scope">
+            You have<strong class="ng-binding"> 0 Token(s)</strong> avalible with you. Please buy tokens as per below plan.
+        </div>
+        <div style="max-height: 300px; overflow: scroll; overflow-x: hidden;" class="ng-scope">
+
+        </div>
+
+        <section class="panel panel-default portlet-item">
+            <header class="panel-heading">
+                Our Plans
+            </header>
+            <section class="panel-body">
+                <div class="pricingsection">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="pricesectioninner">
+                                <h1 class="">@item.Name</h1>
+                                <div class="price"><span>$</span>@item.Amount</div>
+                                <p class="token-desc">
+                                    @item.Description
+                                </p>
+                                <div class="clr20"></div>
+                                <span class="buy btn btn-s-md btn-primary btn-block" data-toggle="modal" data-target="#PaymentModal">Buy now</span>
+                            </div>
+                        </div>
+                    }
+                </div>
+    </div>
+
+    <div class="modal fade in" id="PaymentModal" tabindex="-1" role="dialog" aria-labelledby="PaymentModalLabel" aria-hidden="false">
+        <div class="modal-dialog" >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Fill Your Details Here</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="ng-pristine ng-valid">
+                        <div style="display: inline; margin: 0; padding: 0;">
+                            <input name="utf8" type="hidden" value="✓">
+                            <input name="_method" type="hidden" value="PUT">
+                            <input name="authenticity_token" type="hidden" value="qLZ9cScer7ZxqulsUWazw4x3cSEzv899SP/7ThPCOV8=">
+                        </div>
+                        <div class="form-group">
+                            <div ng-show="errorMsg" ng-bind="errorMsg" class="alert alert- ng-hide"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nameoncard">Name on Card</label>
+                            <input class="form-control ng-pristine ng-valid" size="4" name="nameoncard" id="nameoncard" ng-model="modelpayment.nameoncard" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="cardnumber">Card Number</label>
+                            <input autocomplete="off" class="form-control card-number ng-pristine ng-valid" name="cardnumber" id="cardnumber" ng-model="modelpayment.cardnumber" size="20" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="cardnumber">Total Amount</label>
+                            <span class="form-control  amount"><b class="ng-binding">$4</b></span>
+                        </div>
+                        <div class="form-inline" style="margin-bottom: 36px;">
+                            <div class="form-group col-lg-6">
+                                <label for="nameoncard">Expiration month</label>
+                                <select class="form-control card-expiry-month ng-pristine ng-valid" placeholder="MM" name="cardexpmonth" id="cardexpmonth" ng-model="modelpayment.cardexpmonth"><option value="01">Jan</option><option value="02">Feb</option><option value="03">Mar</option><option value="04">Apr</option><option value="05">May</option><option value="06">Jun</option><option value="07">Jul</option><option value="08">Aug</option><option value="09">Sept</option><option value="10">Oct</option><option value="11" selected="">Nov</option><option value="12">Dec</option></select>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="nameoncard">Expiration year</label>
+                                <select class="form-control card-expiry-year ng-pristine ng-valid" placeholder="YYYY" name="year" id="year" ng-model="modelpayment.year"><option value="2018" selected="">2018</option><option value="2019">2019</option><option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option><option value="2027">2027</option><option value="2028">2028</option><option value="2029">2029</option><option value="2030">2030</option><option value="2031">2031</option><option value="2032">2032</option><option value="2033">2033</option><option value="2034">2034</option><option value="2035">2035</option><option value="2036">2036</option><option value="2037">2037</option></select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button class=" btn btn-primary submit-button fr" type="submit">Pay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+            </section>
+        </section>
+        <!-- Modal -->
+        
+                
+
+    </div>
+</div>

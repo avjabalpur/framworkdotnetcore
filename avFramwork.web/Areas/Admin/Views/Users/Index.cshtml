@@ -1,0 +1,107 @@
+﻿@model IEnumerable<unseentalents.models.Users>
+
+@{
+    ViewData["Title"] = "Users";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<div class="row event-rounds">
+    <div class="col-lg-12">
+        @Html.Partial("_PageTitle", "All Users")
+    </div>
+
+</div>
+
+<div class="panel-body">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ProfilePic)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.UserName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LastName)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            var profileImage = (!string.IsNullOrEmpty(@item.ProfilePic) && item.ProfilePic != "user") ? "Uploads/UserImages/" + @item.ProfilePic : "images/user.png";
+                            <tr>
+                                <td align="center">
+                                    <img class="user-file-image" src="~/@profileImage" alt="@item.UserName" />
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UserName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FirstName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LastName)
+                                </td>
+                                <td>
+
+                                    <a href="@Url.Action("UserDetails", "Users", new {id = item.Id })" title="View details">
+                                        <i class="fa fa-eye"></i>
+                                    </a> |
+
+                                    <a onclick="onClickGrantToken(@item.Id)" href="#" title="Grant Token">
+                                        <i class="fa fa-exchange"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+
+
+<script type="text/javascript">
+
+    function onClickGrantToken(userId) {
+        debugger;
+        $.ajax({
+            url: '@Url.Action("GrantTokenByAdmin", "Tokens")?userid=' + userId,
+                type: 'POST',
+            success: function (response) {
+                debugger;
+                    if (response && !response.success) {
+                        $('.alert.alert-danger').show()
+                        $('.alert.alert-danger .message').html(response.developerMessage);
+                    }
+                    else {
+                        window.location.href = window.location.href;
+
+                    }
+                    console.log('form submitted.');
+                },
+                error: function (msg) {
+                }
+            });
+    }
+</script>
+

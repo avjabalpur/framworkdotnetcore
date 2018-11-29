@@ -1,0 +1,38 @@
+﻿@model unseentalents.auth.AuthUser
+
+<div>
+    <div class="app-titlebar gray-bar">
+        <div class="container">
+            <div class="row pull-right">
+                <div class="navbar-collapse">
+                    @if (Model == null)
+                    {
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="#"><span></span> Welcome Back!</a>
+                            </li>
+                            <li>
+                                <a href="#" data-toggle="modal" data-target="#loginModel"><span class="glyphicon glyphicon-lock"></span> Sign in</a>
+                            </li>
+                            <li>
+                                <a href="#" data-toggle="modal" data-target="#regiserModel"><span class="glyphicon glyphicon-user"></span> Register</a>
+                            </li>
+                        </ul>
+                    }
+
+                    else
+                    {
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="#"><span></span> Welcome @Model.User.FirstName</a>
+                            </li>
+                            <li>
+                                <a href="#" data-toggle="modal"><span class="glyphicon glyphicon-lock"></span> LogOut</a>
+                            </li>
+                        </ul>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

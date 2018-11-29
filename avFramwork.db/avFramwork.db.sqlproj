@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>avFramwork.db</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{127ccb7e-3e9f-4124-aa95-6d597d500249}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>unseentalents.db</RootNamespace>
+    <AssemblyName>unseentalents.db</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\Tables" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="Scripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeployment1.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\EventType.sql" />
+    <Build Include="dbo\Tables\Banner.sql" />
+    <Build Include="dbo\Tables\Category.sql" />
+    <Build Include="dbo\Tables\Comment.sql" />
+    <Build Include="dbo\Tables\CompetitionStatus.sql" />
+    <Build Include="dbo\Tables\ContactInfo.sql" />
+    <Build Include="dbo\Tables\Discussion.sql" />
+    <Build Include="dbo\Tables\Events.sql" />
+    <Build Include="dbo\Tables\EventWinners.sql" />
+    <Build Include="dbo\Tables\ForumDiscussionComments.sql" />
+    <Build Include="dbo\Tables\GrantedTokens.sql" />
+    <Build Include="dbo\Tables\Managetoken.sql" />
+    <Build Include="dbo\Tables\MaskingType.sql" />
+    <Build Include="dbo\Tables\Page.sql" />
+    <Build Include="dbo\Tables\PageContent.sql" />
+    <Build Include="dbo\Tables\PaymentTransaction.sql" />
+    <Build Include="dbo\Tables\ProfileImages.sql" />
+    <Build Include="dbo\Tables\Role.sql" />
+    <Build Include="dbo\Tables\Referral.sql" />
+    <Build Include="dbo\Tables\Token.sql" />
+    <Build Include="dbo\Tables\UserRole.sql" />
+    <Build Include="dbo\Tables\Users.sql" />
+    <Build Include="dbo\Tables\UserSessions.sql" />
+    <Build Include="dbo\Tables\UserTokensRequests.sql" />
+    <Build Include="dbo\Tables\Video.sql" />
+    <Build Include="dbo\Tables\VideoGallery.sql" />
+    <Build Include="dbo\Tables\VisitorsDetails.sql" />
+    <Build Include="dbo\Tables\Vote.sql" />
+    <Build Include="dbo\Functions\GetIsVoted.sql" />
+    <Build Include="dbo\Stored Procedures\usp_CheckEventStatus.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetAllActiveEventRounds.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetAllProfileVideos.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetAllVoteList.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetEventGroupPosts.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetEventPosts.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetEventsByRoundId.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetEventsInBackStagePeriod.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetEventStatusAndRoundType.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetEventWinnerByEventId.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetForumDicussionCommentsByCriteria.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetForumDicussionTopics.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetForumDicussionTopicsForAdmin.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetGroupEventStatusAndRoundType.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetPageContentByPageId.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetRecentEvents.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetRecentlyUploadedVideosByCriteria.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetUpcomingEvents.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetUsersParticipatedInEachRound.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetUsersParticipatedInEachRoundForGroupEvent.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetUsersSelectedInNextRound.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetUsersSelectedInNextRoundForEventSettingMaskedEvent.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetUserUploadsPerRound.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetVideoComments.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetVocalAndInstrumentalVideos.sql" />
+    <None Include="Scripts\ScriptsIgnoredOnImport.sql" />
+    <Build Include="dbo\Tables\EventRounds.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="local.db.publish.xml" />
+  </ItemGroup>
+</Project>

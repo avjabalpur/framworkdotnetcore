@@ -1,0 +1,66 @@
+﻿@model IEnumerable<unseentalents.models.Video>
+
+@{
+    ViewData["Title"] = "Event Round Videos";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row event-rounds">
+    <div class="col-lg-12">
+        @Html.Partial("_PageTitle", "Event Rounds videos")
+    </div>
+   
+</div>
+
+<div class="video-grid">
+    @foreach (var item in Model)
+    {
+            var videoLink = !string.IsNullOrEmpty(@item.VideoPath) ? "Uploads/Videos/" + @item.VideoPath : "";
+
+        <div class="col-md-12 video-grid-item">
+            <div class="col-md-3 video-column">
+                <video controls="controls" poster="~/images/video-thmb-1.jpg">
+                    <source src="~/@videoLink" type="video/mp4" />
+                </video>
+                @*<div class="tags">
+                    Tags : tags
+                </div>*@
+            </div>
+            <div class="col-md-6 video-details-column">
+                <div class="title">
+                    <h3>@item.VideoTitle</h3>
+
+                </div>
+                <div class="uploded-by">
+                    <i>By</i>
+                    <a>@item.UserName</a>
+                </div>
+                <div class="description">
+                    @item.VideoDesc
+                </div>
+                <ul>
+                    <li>
+                        Event :  @item.EventType
+                    </li>
+                    <li>
+                        Mask Type : @item.MaskType
+                    </li>
+                    <li>
+                        Round : @@item.RoundName
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3 video-action-column">
+                <div class="uploded-at">Uploded Date : @item.CreatedDate.ToString("MM/dd/yyyy")</div>
+                <div class="uploded-at">Vote : 0 </div>
+                <div class="uploded-at">Token : @item.TokenUniqueId</div>
+
+                <div class="action-button">
+                    <button class="btn btn-primary">Active</button>
+                    <button class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+            }
+    </div>
+

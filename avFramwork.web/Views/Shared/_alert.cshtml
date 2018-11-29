@@ -1,0 +1,17 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    var message = Model.Split("::");
+}
+
+@if (!string.IsNullOrEmpty(@message[0]))
+{
+    <div class="alert alert-@message[1]">
+        <div>
+            <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+            <span class="message">@message[0]</span>
+        </div>
+    </div>
+}

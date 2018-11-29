@@ -1,0 +1,50 @@
+﻿@model unseentalents.models.ViewModel.EventRoundsViewModel
+@{
+    ViewData["Title"] = "Round Video";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="col-md-12 margin-top-15">
+        <div class="section-heading">
+            <div class="pull-left">
+                <div class="name">
+                    <span class="text-red">@Model.Round.RoundName</span>
+                </div>
+                <p>All the videos from @Model.Round.RoundName</p>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-md-12 margin-top-15">
+            @foreach (var video in Model.Videos)
+            {
+
+
+                var videoLink = !string.IsNullOrEmpty(@video.VideoPath) ? "Uploads/Videos/" + @video.VideoPath : "";
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="event-image-wraper">
+
+                        <video controls="controls" poster="~/images/video-thmb-1.jpg">
+                            <source src="~/@videoLink" type="video/mp4" />
+                        </video>
+
+                        <div class="imageDetails">
+                            <div class="pull-left">
+                                <p>@video.VideoTitle</p>
+                                <p> @video.VideoDesc</p>
+                            </div>
+
+                            <div class="pull-right">
+                                <p>Upload Date : @video.CreatedDate.ToString("MM/dd/yyyy")</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+

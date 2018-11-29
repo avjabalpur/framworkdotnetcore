@@ -1,0 +1,155 @@
+﻿@model unseentalents.models.ViewModel.VideoUploadViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="col-md-12 upload-videos">
+        <div class="row col-lg-9">
+            <h2>Upload Videos</h2>
+            @using (Html.BeginForm("Index", "Upload", FormMethod.Post, new { @id = "frmVideoUpload", enctype = "multipart/form-data" }))
+            {
+
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Video.VideoTitle)
+                    @Html.TextBoxFor(m => m.Video.VideoTitle, new
+               {
+                   @class = "form-control",
+                   @placeholder = "Video Title"
+               })
+                    @Html.ValidationMessageFor(m => m.Video.VideoTitle, string.Empty, new { @class = "text-danger text-left" })
+
+                </div>
+
+                <div class="form-group">
+                    <div><label>Select the event you want to upload to </label></div>
+
+                    @foreach (var eventType in Model.EventTypes)
+                    {
+                        <div class="radio-inline i-checks">
+                            <label>
+                                @Html.RadioButtonFor(m => m.Video.EventTypeId, eventType.Id) @eventType.Name
+                            </label>
+                        </div>
+                    }
+                </div>
+
+                <div class="form-group">
+                    <div><label>I will upload using </label></div>
+                    <div class="radio-inline i-checks">
+                        <label>
+                            <input type="radio" name="SelectedTokenType" value="1" checked="checked"> <i></i> Avaliable Tokens
+                        </label>
+                    </div>
+                    <div class="radio-inline i-checks">
+                        <label>
+                            <input type="radio" name="SelectedTokenType" value="2"> <i></i> I Have a code
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group select-token-type">
+                    @Html.DropDownListFor(m => m.Video.TokenUniqueId, Model.UserTokens, "Select Token", new { @class = "form-control" })
+
+                </div>
+
+                <div class="form-group text-token-type">
+                    @Html.TextBoxFor(m => m.Video.TokenUniqueId, new
+                   {
+                       @class = "form-control",
+                       @placeholder = "Token Code"
+                   })
+                </div>
+
+                <div class="form-group">
+                    <div><label>I want my Video to be Masked as</label></div>
+
+                    @foreach (var maskingType in Model.MaskingTypes)
+                    {
+                        <div class="radio-inline i-checks">
+                            <label>
+                                @Html.RadioButtonFor(m => m.Video.MaskTypeId, maskingType.Id) @maskingType.Name
+                            </label>
+                        </div>
+                    }
+                </div>
+
+                <div class="form-group">
+                    <label>About my Video</label>
+
+                    @Html.TextAreaFor(m => m.Video.VideoDesc, new
+                 {
+                     @class = "form-control",
+                     @placeholder = "Description"
+                 })
+
+                </div>
+                <div class="form-group">
+                    <div id="fileupload">
+                        <span class="btn btn-success fileinput-button">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            <span>Upload Video</span>
+                            <input type="file" name="File" id="File">
+                            <input type="hidden">
+                        </span>
+                        <span class="fileupload-process"></span>
+                    </div>
+                </div>
+
+                <div class="margin-top-15 margin-bottom-15">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-default">Cancel</button>
+                </div>
+            }
+        </div>
+
+        <div class="col-sm-3 margin-top-15">
+            <div class="panel panel-default">
+                <a asp-controller="Payment" asp-action="Index" class="btn btn-s-md btn-primary btn-block" title="Purchase Tokens">
+                    Purchase Tokens
+                </a>
+
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">Recent Events</div>
+                <div class="panel-body">
+                    <div class="dd" id="nestable1">
+                        <ol class="dd-list">
+                            <li class="dd-item" ng-if="recentevents == ''">
+                                <div class="dd-handle">
+                                    No results found
+                                </div>
+                            </li>
+                            <li class="dd-item">
+                                <div class="dd-handle">
+                                    <a href="/WebApp/Videos/">
+                                    </a>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.text-token-type').hide();
+        $('input[type=radio][name=SelectedTokenType]').change(function () {
+            if (this.value == '1') {
+                // avilabe token
+                $('.select-token-type').show();
+                $('.text-token-type').hide();
+            }
+            else if (this.value == '2') {
+                $('.select-token-type').hide();
+                $('.text-token-type').show();
+            }
+        });
+    })
+</script>
